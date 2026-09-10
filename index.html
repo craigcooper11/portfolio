@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Craig Cooper — Agentic AI Lead &amp; Software Development Manager</title>
+<meta name="description" content="Craig Cooper builds and leads engineering teams shipping agentic AI systems into production. Senior Agentic AI Lead &amp; Software Development Manager at IBM." />
+
+<!-- Open Graph / social -->
+<meta property="og:title" content="Craig Cooper — Agentic AI Lead &amp; Software Development Manager" />
+<meta property="og:description" content="Builds and leads teams shipping agentic AI systems into production." />
+<meta property="og:type" content="website" />
+<!-- EDIT: og:url + og:image once the domain and a share image exist -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Serif:wght@400;500;600&display=swap" rel="stylesheet" />
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          bg:      '#101b2d',
+          panel:   '#1d2e49',
+          paper:   '#ece7dc',
+          muted:   '#b7c3d0',
+          accent:  '#3fd1c0',
+          wire:    '#8aa1b1',
+          wiredim: '#2a3c4d',
+          warn:    '#e0a668',
+        },
+        fontFamily: {
+          serif: ['"IBM Plex Serif"', 'Georgia', 'serif'],
+          sans:  ['"IBM Plex Sans"', 'system-ui', 'sans-serif'],
+          mono:  ['"IBM Plex Mono"', 'ui-monospace', 'monospace'],
+        },
+        maxWidth: {
+          prose: '46rem',
+        },
+      },
+    },
+  };
+</script>
+<style type="text/tailwindcss">
+  @layer base {
+    body { @apply bg-bg text-paper font-sans antialiased; }
+    ::selection { background-color: #3fd1c0; color: #101b2d; }
+  }
+  @layer components {
+    .rule       { @apply border-t border-wiredim; }
+    .eyebrow    { @apply font-mono text-xs uppercase tracking-[0.2em] text-wire; }
+    .section    { @apply mx-auto max-w-5xl px-6 py-20 md:py-28; }
+    .link       { @apply text-accent underline decoration-accent/30 underline-offset-4 hover:decoration-accent transition-colors; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ───────────────────────── Nav ───────────────────────── -->
+<header class="sticky top-0 z-40 border-b border-wiredim bg-bg/90 backdrop-blur">
+  <nav class="mx-auto flex max-w-5xl items-center justify-between px-6 py-4">
+    <a href="#top" class="font-serif text-lg font-semibold text-paper">Craig Cooper</a>
+    <div class="hidden items-center gap-5 text-sm text-muted min-[820px]:flex">
+      <a href="#experience" class="hover:text-paper transition-colors">Experience</a>
+      <a href="#work" class="hover:text-paper transition-colors">Case studies</a>
+      <a href="#demos" class="hover:text-paper transition-colors">Demo</a>
+      <a href="#approach" class="hover:text-paper transition-colors">Approach</a>
+      <a href="#stack" class="hover:text-paper transition-colors">Stack</a>
+      <a href="#contact" class="hover:text-paper transition-colors">Contact</a>
+    </div>
+    <a href="Craig_Cooper_Resume.pdf" target="_blank" rel="noopener"
+       class="rounded border border-accent px-3 py-1.5 text-sm font-medium text-accent hover:bg-accent hover:text-bg transition-colors">
+      Résumé
+    </a>
+  </nav>
+</header>
+
+<main id="top">
+
+  <!-- ───────────────────────── Hero ───────────────────────── -->
+  <section class="section pt-16 md:pt-24">
+    <p class="eyebrow">Senior Agentic AI Lead &amp; Software Development Manager — IBM</p>
+    <h1 class="mt-6 max-w-3xl font-serif text-4xl font-semibold leading-tight md:text-6xl">
+      I build and lead engineering teams shipping agentic AI systems into production.
+    </h1>
+    <p class="mt-6 max-w-prose text-lg leading-relaxed text-paper/90">
+      Nine-plus years architecting and scaling production agentic systems and
+      cloud-native infrastructure, the last few focused on multi-agent assistants,
+      MCP gateways, retrieval, and the evaluation infrastructure that keeps them
+      honest. I care about the unglamorous parts — tracing, grounding, latency
+      budgets, and the org design that lets a team move fast without shipping
+      something it can't explain.
+      <!-- EDIT: framing above drafted from resume v4 — tweak to taste -->
+    </p>
+    <div class="mt-10 flex flex-wrap items-center gap-x-6 gap-y-3 text-sm">
+      <a href="#contact" class="rounded bg-accent px-4 py-2 font-medium text-bg hover:brightness-110 transition">Get in touch</a>
+      <a href="#approach" class="link">Read the approach ↓</a>
+      <a href="Craig_Cooper_Resume.pdf" target="_blank" rel="noopener" class="link">Résumé (PDF)</a>
+    </div>
+  </section>
+
+  <div class="rule"></div>
+
+  <!-- ───────────────────────── What I do ───────────────────────── -->
+  <section class="section">
+    <p class="eyebrow">What I do</p>
+    <div class="mt-8 grid gap-10 md:grid-cols-3">
+      <div>
+        <h2 class="font-serif text-xl font-medium">Agentic systems</h2>
+        <p class="mt-3 text-[15px] leading-relaxed text-paper/85">
+          Design and build multi-step, tool-using agents: planning loops, retrieval
+          and reranking, structured tool interfaces, and the guardrails around
+          them. Focus on making behaviour observable and bounded.
+        </p>
+      </div>
+      <div>
+        <h2 class="font-serif text-xl font-medium">Evaluation &amp; observability</h2>
+        <p class="mt-3 text-[15px] leading-relaxed text-paper/85">
+          Trace every run, score it, and turn regressions into fixtures. Offline
+          eval suites, runs and quality scores tracked as experiments in MLflow,
+          OpenTelemetry traces, and dashboards a product manager can actually read.
+        </p>
+      </div>
+      <div>
+        <h2 class="font-serif text-xl font-medium">Engineering management</h2>
+        <p class="mt-3 text-[15px] leading-relaxed text-paper/85">
+          Run teams delivering AI features against real deadlines: hiring, technical
+          direction, stakeholder translation, and keeping the roadmap grounded in
+          what the models can and can't do today.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <div class="rule"></div>
+
+  <!-- ───────────────────────── Experience ───────────────────────── -->
+  <section id="experience" class="section">
+    <p class="eyebrow">Experience</p>
+    <h2 class="mt-6 font-serif text-3xl font-semibold md:text-4xl">Where I've done it</h2>
+    <p class="mt-4 max-w-prose text-[15px] leading-relaxed text-paper/85">
+      Seven years at IBM so far — moving from senior developer and tech lead to
+      engineering manager to leading agentic AI delivery.
+      <!-- EDIT: add earlier roles / total years of experience if you want them shown -->
+    </p>
+
+    <div class="mt-12 space-y-10">
+
+      <article class="grid gap-2 md:grid-cols-[10rem_1fr] md:gap-8">
+        <p class="font-mono text-xs text-wire md:pt-1">Apr 2024 — Present</p>
+        <div>
+          <h3 class="font-serif text-xl font-medium">Senior Agentic AI Lead <span class="text-wire">· IBM</span></h3>
+          <p class="mt-2 max-w-prose text-[15px] leading-relaxed text-paper/85">
+            Lead a 6–8 engineer team building and operating a production multi-agent
+            AI assistant — drove it from beta to GA across two releases. Designed and
+            shipped the enterprise MCP gateway behind it, the retrieval and reranking
+            pipeline, AI-safety screening on a GPU cluster (OpenShift AI), and the
+            OpenTelemetry + MLflow observability stack. Also ran a platform-migration
+            feasibility assessment to VP-level stakeholders and an active pentest
+            remediation cycle.
+          </p>
+        </div>
+      </article>
+
+      <article class="grid gap-2 md:grid-cols-[10rem_1fr] md:gap-8">
+        <p class="font-mono text-xs text-wire md:pt-1">May 2022 — Apr 2024</p>
+        <div>
+          <h3 class="font-serif text-xl font-medium">Software Development Manager <span class="text-wire">· IBM</span></h3>
+          <p class="mt-2 max-w-prose text-[15px] leading-relaxed text-paper/85">
+            Led design and development of Go / Python / PHP microservices powering
+            provisioning and deployment tooling on OpenShift. Built a Kubernetes
+            Operator for cluster bootstrapping, Tekton CI/CD pipelines for enterprise
+            software installs, CVE remediation across six clusters, HashiCorp Vault
+            secret rotation, and RBAC audits.
+          </p>
+        </div>
+      </article>
+
+      <article class="grid gap-2 md:grid-cols-[10rem_1fr] md:gap-8">
+        <p class="font-mono text-xs text-wire md:pt-1">Apr 2019 — May 2022</p>
+        <div>
+          <h3 class="font-serif text-xl font-medium">Senior Software Developer / Tech Lead <span class="text-wire">· IBM</span></h3>
+          <p class="mt-2 max-w-prose text-[15px] leading-relaxed text-paper/85">
+            Full-stack microservices and automation across deployment tooling on
+            OpenShift. Built an ArgoCD + Tekton GitOps pipeline across multiple
+            clusters, an event-streaming / SSO integration, and resolved a critical
+            platform-availability outage — then hardened the environment against a
+            repeat.
+          </p>
+        </div>
+      </article>
+
+    </div>
+
+    <!-- Education -->
+    <div class="mt-14 border-t border-wiredim pt-8">
+      <p class="eyebrow">Education</p>
+      <div class="mt-5 grid gap-2 md:grid-cols-[10rem_1fr] md:gap-8">
+        <p class="font-mono text-xs text-wire md:pt-1">2018</p>
+        <div>
+          <h3 class="font-serif text-xl font-medium">B.S. Mathematics</h3>
+          <p class="mt-1 text-[15px] text-paper/80">University of Texas at San Antonio</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="rule"></div>
+
+  <!-- ───────────────────────── Selected work ───────────────────────── -->
+  <section id="work" class="section">
+    <p class="eyebrow">Selected work</p>
+    <h2 class="mt-6 font-serif text-3xl font-semibold md:text-4xl">Case studies</h2>
+    <p class="mt-4 max-w-prose text-[15px] leading-relaxed text-paper/85">
+      Genericised on purpose — patterns and decisions, not internal systems by name.
+      Happy to go deeper in a conversation.
+    </p>
+
+    <div class="mt-14 space-y-16">
+
+      <!-- Case study 01 -->
+      <article class="grid gap-6 md:grid-cols-[8rem_1fr]">
+        <p class="font-mono text-xs uppercase tracking-widest text-wire md:pt-1">Case&nbsp;study&nbsp;01</p>
+        <div>
+          <h3 class="font-serif text-2xl font-medium">Grounding a production RAG assistant that kept making things up</h3>
+          <p class="mt-4 max-w-prose text-[15px] leading-relaxed text-paper/85">
+            An internal assistant answered from a large, messy corpus and confidently
+            invented specifics when retrieval missed. The team was patching prompts
+            and losing trust with users.
+          </p>
+          <ul class="mt-5 space-y-2 text-[15px] text-paper/80">
+            <li class="flex gap-3"><span class="mt-2 h-px w-3 shrink-0 bg-wire"></span>Rebuilt retrieval around a two-stage pipeline: fast recall, then a cross-encoder reranker (the documentation scenario in the demo below shows this step in miniature).</li>
+            <li class="flex gap-3"><span class="mt-2 h-px w-3 shrink-0 bg-wire"></span>Made the model cite spans it actually used and refuse when top-k relevance fell below a threshold.</li>
+            <li class="flex gap-3"><span class="mt-2 h-px w-3 shrink-0 bg-wire"></span>Stood up an eval set from real failed queries so every prompt change was measured, not vibes.</li>
+          </ul>
+          <p class="mt-5 max-w-prose text-[15px] leading-relaxed text-paper/85">
+            <span class="text-paper">Outcome:</span> hallucinated answers dropped
+            sharply and the refusal path became a feature rather than an
+            embarrassment.
+            <!-- EDIT: replace with a specific, publicly-clearable metric if Craig has one; otherwise keep qualitative -->
+          </p>
+        </div>
+      </article>
+
+      <!-- Case study 02 -->
+      <article class="grid gap-6 md:grid-cols-[8rem_1fr]">
+        <p class="font-mono text-xs uppercase tracking-widest text-wire md:pt-1">Case&nbsp;study&nbsp;02</p>
+        <div>
+          <h3 class="font-serif text-2xl font-medium">Turning an opaque agent into something the team could debug</h3>
+          <p class="mt-4 max-w-prose text-[15px] leading-relaxed text-paper/85">
+            A multi-step agent worked in demos and failed unpredictably in the field.
+            Nobody could say why a given run went wrong without re-running it by hand.
+          </p>
+          <ul class="mt-5 space-y-2 text-[15px] text-paper/80">
+            <li class="flex gap-3"><span class="mt-2 h-px w-3 shrink-0 bg-wire"></span>Added structured tracing for every step — plan, tool call, tool result, model turn — with timing and a per-step quality score.</li>
+            <li class="flex gap-3"><span class="mt-2 h-px w-3 shrink-0 bg-wire"></span>Built a trace explorer (the step-by-step run panel in the demo below is the same idea) so engineers and PMs could open any run and see exactly where it drifted.</li>
+            <li class="flex gap-3"><span class="mt-2 h-px w-3 shrink-0 bg-wire"></span>Wired warn/error states on spans to alerting, so bad runs surfaced before users complained.</li>
+          </ul>
+          <p class="mt-5 max-w-prose text-[15px] leading-relaxed text-paper/85">
+            <span class="text-paper">Outcome:</span> mean time to diagnose a bad run
+            went from hours to minutes, and regressions started getting caught in
+            review instead of in production.
+            <!-- EDIT: confirm this framing is cleared for public use -->
+          </p>
+        </div>
+      </article>
+
+      <!-- Case study 03 -->
+      <article class="grid gap-6 md:grid-cols-[8rem_1fr]">
+        <p class="font-mono text-xs uppercase tracking-widest text-wire md:pt-1">Case&nbsp;study&nbsp;03</p>
+        <div>
+          <h3 class="font-serif text-2xl font-medium">Growing an AI team without losing the plot</h3>
+          <p class="mt-4 max-w-prose text-[15px] leading-relaxed text-paper/85">
+            A small group needed to become a delivery team shipping agentic features
+            on a roadmap, while the underlying models and tooling changed every few
+            weeks.
+          </p>
+          <ul class="mt-5 space-y-2 text-[15px] text-paper/80">
+            <li class="flex gap-3"><span class="mt-2 h-px w-3 shrink-0 bg-wire"></span>Hired for judgement and curiosity over framework familiarity — the frameworks kept changing anyway.</li>
+            <li class="flex gap-3"><span class="mt-2 h-px w-3 shrink-0 bg-wire"></span>Set a rule that no capability ships without an eval that would catch it regressing.</li>
+            <li class="flex gap-3"><span class="mt-2 h-px w-3 shrink-0 bg-wire"></span>Kept a running "what the model can't do yet" list so product commitments stayed honest.</li>
+          </ul>
+          <p class="mt-5 max-w-prose text-[15px] leading-relaxed text-paper/85">
+            <span class="text-paper">Outcome:</span> predictable delivery on AI
+            features and a team that treats model limitations as a design input, not
+            a surprise.
+          </p>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ───────────────────────── Demo ───────────────────────── -->
+  <section id="demos" class="border-t-2 border-accent bg-panel">
+    <div class="mx-auto max-w-5xl px-6 py-20 md:py-28">
+      <p class="eyebrow text-accent">Interactive</p>
+      <h2 class="mt-6 font-serif text-3xl font-semibold md:text-4xl">A reservation assistant, simulated end&#8209;to&#8209;end</h2>
+      <p class="mt-4 max-w-prose text-[15px] leading-relaxed text-paper/85">
+        This is a stripped-down, genericised model of the kind of multi-agent
+        assistant I lead in production — a user asks for something in plain
+        language, the agent routes it, calls tools through a gateway, runs a
+        safety screen, answers, and logs the whole run for evaluation. Pick a
+        request and watch it unfold on the right, step by step. Everything here is
+        canned and runs in your browser; the real system runs on a GPU cluster
+        (OpenShift AI), with internal names, auth, more tools, and far more edge
+        cases.
+      </p>
+
+      <div class="mt-10 grid gap-5 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)]">
+
+        <!-- Chat column -->
+        <div class="flex flex-col rounded-lg border border-wiredim bg-bg">
+          <div class="flex items-center justify-between border-b border-wiredim px-4 py-3 font-mono text-xs text-muted">
+            <span>reservation assistant</span>
+            <button id="demo-reset" type="button"
+                    class="text-accent hover:underline underline-offset-4 disabled:opacity-30" disabled>reset</button>
+          </div>
+          <div id="chat-log" class="flex-1 space-y-4 overflow-y-auto px-4 py-5 text-sm" style="min-height:16rem;max-height:24rem">
+            <p class="font-mono text-xs text-wire">// pick a request below to start a run</p>
+          </div>
+          <div class="border-t border-wiredim p-3">
+            <p class="mb-2 font-mono text-[11px] uppercase tracking-wider text-wire">Try one</p>
+            <div id="demo-prompts" class="flex flex-wrap gap-2"></div>
+          </div>
+        </div>
+
+        <!-- Agent run column -->
+        <div class="rounded-lg border border-wiredim bg-bg">
+          <div class="flex items-center justify-between border-b border-wiredim px-4 py-3 font-mono text-xs text-muted">
+            <span>agent run</span>
+            <span id="run-status" class="text-wire">idle</span>
+          </div>
+          <ol id="run-steps" class="divide-y divide-wiredim/60">
+            <li class="px-4 py-6 font-mono text-xs text-wire">no run yet</li>
+          </ol>
+          <p class="border-t border-wiredim px-4 py-3 font-mono text-[11px] leading-relaxed text-wire">
+            <span class="inline-block h-1.5 w-1.5 rounded-full bg-wire align-middle"></span> ok
+            &nbsp;·&nbsp;
+            <span class="inline-block h-1.5 w-1.5 rounded-full bg-warn align-middle"></span> warn — needs a human or degraded gracefully
+            &nbsp;·&nbsp; click a step to expand
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ───────────────────────── Approach ───────────────────────── -->
+  <section id="approach" class="section">
+    <p class="eyebrow">Approach</p>
+    <h2 class="mt-6 font-serif text-3xl font-semibold md:text-4xl">How I think about building this stuff</h2>
+
+    <div class="mt-10 max-w-prose space-y-6 text-base leading-relaxed text-paper/90">
+      <p>
+        <span class="font-medium text-paper">Make it observable before you make it clever.</span>
+        An agent you can't trace is an agent you can't improve. The first thing I
+        build on any new system is the ability to open a single run and see every
+        decision it made and how good each one was.
+      </p>
+      <p>
+        <span class="text-paper">Evals are the product surface.</span> Every bug
+        report becomes a fixture. Every capability ships with a test that would fail
+        if it regressed. This is slower for the first month and much faster forever
+        after.
+      </p>
+      <p>
+        <span class="text-paper">Bound the blast radius.</span> Tools with narrow,
+        typed interfaces. Explicit refusal paths. Confirmation before anything
+        irreversible. The interesting behaviour lives inside guardrails, not instead
+        of them.
+      </p>
+      <p>
+        <span class="text-paper">Manage the humans and the models honestly.</span>
+        Teams do their best work when the roadmap reflects what the models can
+        actually do this quarter. Part of my job is keeping that translation
+        accurate in both directions — up to stakeholders and down to the backlog.
+      </p>
+    </div>
+  </section>
+
+  <div class="rule"></div>
+
+  <!-- ───────────────────────── Stack ───────────────────────── -->
+  <section id="stack" class="section">
+    <p class="eyebrow">Stack</p>
+    <h2 class="mt-6 font-serif text-3xl font-semibold md:text-4xl">What I build on</h2>
+    <p class="mt-4 max-w-prose text-[15px] leading-relaxed text-paper/85">
+      The tools I've shipped and operated production agentic systems with. Depth
+      varies — this is what I reach for, not a checklist.
+    </p>
+
+    <dl class="mt-10 grid gap-x-8 gap-y-7 sm:grid-cols-2">
+      <div class="grid grid-cols-[7.5rem_1fr] gap-4 border-t border-wiredim pt-4">
+        <dt class="font-mono text-xs uppercase tracking-wider text-wire">AI / ML</dt>
+        <dd class="text-[15px] leading-relaxed text-paper/85">LangGraph, MCP architecture, RAG &amp; reranking, watsonx.ai, Granite models, LoRA fine-tuning, Granite Guardian (safety / guardrails)</dd>
+      </div>
+      <div class="grid grid-cols-[7.5rem_1fr] gap-4 border-t border-wiredim pt-4">
+        <dt class="font-mono text-xs uppercase tracking-wider text-wire">Languages</dt>
+        <dd class="text-[15px] leading-relaxed text-paper/85">Python, Go, TypeScript / JavaScript, NestJS, Bash, YAML</dd>
+      </div>
+      <div class="grid grid-cols-[7.5rem_1fr] gap-4 border-t border-wiredim pt-4">
+        <dt class="font-mono text-xs uppercase tracking-wider text-wire">Infra</dt>
+        <dd class="text-[15px] leading-relaxed text-paper/85">Red Hat OpenShift &amp; OpenShift AI, Kubernetes, Tekton, ArgoCD, GitOps, NVIDIA MIG / H100 GPU</dd>
+      </div>
+      <div class="grid grid-cols-[7.5rem_1fr] gap-4 border-t border-wiredim pt-4">
+        <dt class="font-mono text-xs uppercase tracking-wider text-wire">Cloud &amp; data</dt>
+        <dd class="text-[15px] leading-relaxed text-paper/85">IBM Cloud, Kafka (Event Streams), Milvus, Cloud Object Storage, PostgreSQL, HashiCorp Vault</dd>
+      </div>
+      <div class="grid grid-cols-[7.5rem_1fr] gap-4 border-t border-wiredim pt-4">
+        <dt class="font-mono text-xs uppercase tracking-wider text-wire">Observability</dt>
+        <dd class="text-[15px] leading-relaxed text-paper/85">OpenTelemetry, Grafana Tempo, Loki, Prometheus, MLflow (experiment &amp; quality tracking), IBM Concert</dd>
+      </div>
+    </dl>
+  </section>
+
+  <div class="rule"></div>
+
+  <!-- ───────────────────────── Homelab ───────────────────────── -->
+  <section id="homelab" class="section">
+    <p class="eyebrow">Off the clock</p>
+    <h2 class="mt-6 font-serif text-3xl font-semibold md:text-4xl">Homelab</h2>
+    <p class="mt-4 max-w-prose text-[15px] leading-relaxed text-paper/85">
+      A rack in the house where I try things before I'd risk them at work — a
+      Proxmox cluster, self-hosted services, home automation, and a growing pile of
+      MCP servers wiring it all together. Good for staying honest about what
+      &ldquo;just deploy it&rdquo; actually costs.
+    </p>
+    <ul class="mt-6 space-y-2 text-[15px] text-paper/80">
+      <li class="flex gap-3"><span class="mt-2 h-px w-3 shrink-0 bg-wire"></span>
+        <!-- EDIT: homelab infra repo link -->
+        <a class="link" href="#">infra &amp; Proxmox automation →</a>
+      </li>
+      <li class="flex gap-3"><span class="mt-2 h-px w-3 shrink-0 bg-wire"></span>
+        <!-- EDIT: MCP servers / home automation repo link -->
+        <a class="link" href="#">MCP servers &amp; Home Assistant setup →</a>
+      </li>
+    </ul>
+  </section>
+
+  <!-- ───────────────────────── Contact ───────────────────────── -->
+  <section id="contact" class="section">
+    <p class="eyebrow">Contact</p>
+    <h2 class="mt-6 font-serif text-3xl font-semibold md:text-4xl">Let's talk</h2>
+    <p class="mt-4 max-w-prose text-base leading-relaxed text-paper/85">
+      I'm open to conversations about agentic AI engineering and engineering
+      management roles. The fastest way to reach me is email.
+    </p>
+    <div class="mt-8 flex flex-wrap gap-x-8 gap-y-3 text-sm">
+      <a class="link" href="mailto:craigcooper87911@gmail.com">craigcooper87911@gmail.com</a>
+      <a class="link" href="https://www.linkedin.com/in/craig-c-51b405146/" rel="me" target="_blank">LinkedIn</a>
+      <a class="link" href="https://github.com/craigcooper11" rel="me" target="_blank">GitHub</a>
+      <a class="link" href="Craig_Cooper_Resume.pdf" target="_blank" rel="noopener">Résumé (PDF)</a>
+    </div>
+  </section>
+
+</main>
+
+<footer class="rule">
+  <div class="mx-auto max-w-5xl px-6 py-10 font-mono text-xs text-wire">
+    © <span id="year"></span> Craig Cooper · Built as one static file · No trackers beyond privacy-friendly analytics
+  </div>
+</footer>
+
+<!-- ───────────────────────── JS ───────────────────────── -->
+<script>
+(function () {
+  'use strict';
+
+  /* ---------- footer year ---------- */
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  /* ---------- Demo: reservation assistant (simulated) ---------- */
+
+  // Each scenario is one canned agent run. Steps stream into the run panel one
+  // at a time; `kind` drives the little badge, `status` is ok | warn.
+  var SCENARIOS = [
+    {
+      id: 'extend',
+      chip: 'Extend my lab environment by 3 days',
+      user: 'Can you extend my lab environment by 3 days? It expires tomorrow.',
+      steps: [
+        { name: 'route.intent', kind: 'route', dur: '0.4s', status: 'ok',
+          detail: 'Classified as an extension request. Extracted: action=extend, target=current user\'s environment, delta=+3d. Confidence 0.94 — routed straight to the extension flow.' },
+        { name: 'get_reservation', kind: 'tool', dur: '0.3s', status: 'ok', gateway: true,
+          detail: 'get_reservation(owner=me) → env #4471, 3-node pool, expires in 18h. One active reservation, no ambiguity.' },
+        { name: 'check_capacity', kind: 'tool', dur: '0.4s', status: 'warn', gateway: true,
+          detail: 'check_capacity(pool="shared-3n") → 92% allocated. Policy: extensions above 85% need an owner approval. The agent does not force it — it drafts the extension in a pending state and hands off.' },
+        { name: 'compose.reply', kind: 'model', dur: '0.6s', status: 'ok',
+          detail: 'Wrote a reply that states what was done, what is blocked, and what happens next. Did not claim the extension is confirmed — that would be the failure mode here.' },
+        { name: 'track.run', kind: 'track', dur: '0.1s', status: 'ok',
+          detail: 'Trace, per-step scores, and the outcome (pending-approval) written to the experiment tracker (MLflow). Pending-approval outcomes are tagged separately so they do not read as failures, and this run joins the extension-flow eval set and the weekly quality / NPS dashboard.' }
+      ],
+      answer: 'I’ve queued a 3-day extension on environment <span class="text-paper">#4471</span>. The shared pool is nearly full, so the extension needs an owner sign-off before it takes effect — it’s pending now and you’ll get an email when it clears. Your current expiry still stands in the meantime, so nothing is lost if the approval is quick.'
+    },
+    {
+      id: 'docs',
+      chip: 'How do I rotate the signing key with no downtime?',
+      user: 'How do I rotate the signing key without downtime?',
+      steps: [
+        { name: 'route.intent', kind: 'route', dur: '0.4s', status: 'ok',
+          detail: 'No action verb on an account object — classified as a documentation question. Routed to retrieval rather than the provisioning tools.' },
+        { name: 'search_docs', kind: 'tool', dur: '0.3s', status: 'ok', gateway: true,
+          detail: 'search_docs("rotate signing key downtime") → 8 candidate passages by vector similarity. Top hit by raw score is actually a near-miss about connection draining.' },
+        { name: 'rerank', kind: 'tool', dur: '0.5s', status: 'ok', gateway: true,
+          detail: 'Cross-encoder rerank of the 8 candidates against the question. The passage describing the add-key / wait-one-TTL / promote sequence moves from rank 6 to rank 1 (relevance 0.94). Two off-topic passages drop out of the top 3.' },
+        { name: 'screen.output', kind: 'safety', dur: '0.2s', status: 'ok',
+          detail: 'Output safety screen — a guardrail model served on the GPU cluster (OpenShift AI): no secrets, no PII, answer is grounded in the retrieved passages. Pass.' },
+        { name: 'compose.reply', kind: 'model', dur: '0.7s', status: 'ok',
+          detail: 'Answer composed from the two top-ranked passages, with citations. If reranked relevance had come back below threshold, the agent would say it isn’t sure rather than guess.' },
+        { name: 'track.run', kind: 'track', dur: '0.1s', status: 'ok',
+          detail: 'Trace, retrieval scores, rerank deltas, and a groundedness score for the answer written to the experiment tracker (MLflow). Retrieval-quality regressions surface on the dashboard here before a user ever reports a bad answer.' }
+      ],
+      answer: 'Roll the key without a restart: generate the new signing key, publish it to the JWKS endpoint <em>alongside</em> the current one, wait one token TTL so every live token still validates, then promote the new key to primary. Once no valid tokens reference the old key, remove it from the JWKS response. <span class="block mt-2 font-mono text-[11px] text-wire">sources: key-rotation#p2, key-rotation#p3</span>'
+    },
+    {
+      id: 'create',
+      chip: 'Spin up a 3-node cluster for a demo tomorrow',
+      user: 'I need a 3-node cluster for a customer demo tomorrow. Can you set one up?',
+      steps: [
+        { name: 'route.intent', kind: 'route', dur: '0.4s', status: 'ok',
+          detail: 'Classified as a creation request. Extracted: nodes=3, purpose=demo, expiry=+1d. Routed to the provisioning flow.' },
+        { name: 'lookup_catalog', kind: 'tool', dur: '0.3s', status: 'ok', gateway: true,
+          detail: 'lookup_catalog("3-node cluster") → matched the standard 3-node template. No custom sizing needed.' },
+        { name: 'check_quota', kind: 'tool', dur: '0.3s', status: 'ok', gateway: true,
+          detail: 'check_quota(owner=me, nodes=3) → within quota, 3 nodes available in-region. Clear to create.' },
+        { name: 'create_reservation', kind: 'tool', dur: '0.5s', status: 'ok', gateway: true,
+          detail: 'create_reservation(template="std-3n", expiry="+1d") → reservation #5120 created, provisioning started. ETA ~8 min.' },
+        { name: 'screen.output', kind: 'safety', dur: '0.2s', status: 'warn',
+          detail: 'Output screen — guardrail model on the GPU cluster (OpenShift AI) — flagged an internal hostname in the config block the agent was about to echo back. Redacted the hostname; the rest of the reply is unchanged. Logged for review.' },
+        { name: 'compose.reply', kind: 'model', dur: '0.6s', status: 'ok',
+          detail: 'Reply confirms the reservation, the expiry, and notes the one redaction so the user isn’t surprised by the masked value.' },
+        { name: 'track.run', kind: 'track', dur: '0.1s', status: 'ok',
+          detail: 'Trace, tool latencies, and the safety-redaction event written to the experiment tracker (MLflow). The redaction is tagged so it becomes a fixture in the eval set — the next release has to keep masking that hostname.' }
+      ],
+      answer: 'Done — cluster reservation <span class="text-paper">#5120</span>, 3 nodes, provisioning now (ready in ~8 min). It auto-expires tomorrow at 23:59 so it won’t linger after the demo. One internal hostname was masked from the config echo by the safety screen — grab the real value from the console if you need it.'
+    }
+  ];
+
+  var chatLog   = document.getElementById('chat-log');
+  var promptsEl = document.getElementById('demo-prompts');
+  var stepsEl   = document.getElementById('run-steps');
+  var statusEl  = document.getElementById('run-status');
+  var resetBtn  = document.getElementById('demo-reset');
+  var running   = false;
+
+  var KIND_LABEL = { route: 'route', tool: 'tool · gateway', safety: 'safety', model: 'model', track: 'tracker' };
+
+  function el(tag, cls, html) {
+    var n = document.createElement(tag);
+    if (cls) n.className = cls;
+    if (html != null) n.innerHTML = html;
+    return n;
+  }
+
+  function bubble(role, html) {
+    var wrap = el('div', role === 'user' ? 'flex justify-end' : 'flex justify-start');
+    var b = el('div',
+      role === 'user'
+        ? 'max-w-[85%] rounded-lg rounded-br-sm bg-wiredim px-3 py-2 text-paper'
+        : 'max-w-[90%] rounded-lg rounded-bl-sm border border-wiredim bg-panel/50 px-3 py-2 text-paper/90',
+      html);
+    wrap.appendChild(b);
+    chatLog.appendChild(wrap);
+    chatLog.scrollTop = chatLog.scrollHeight;
+    return b;
+  }
+
+  function delay(ms) { return new Promise(function (r) { setTimeout(r, ms); }); }
+
+  function stepRow(s) {
+    var isWarn = s.status === 'warn';
+    var sc = isWarn ? 'text-warn' : 'text-wire';
+    var li = el('li', 'opacity-0 transition-opacity duration-300');
+
+    var btn = el('button',
+      'flex w-full items-center gap-3 px-4 py-2.5 text-left font-mono text-xs hover:bg-panel/60 focus:outline-none focus:bg-panel/60');
+    btn.type = 'button';
+    btn.setAttribute('aria-expanded', 'false');
+    btn.innerHTML =
+      '<span class="' + (isWarn ? 'bg-warn' : 'bg-wire') + ' h-1.5 w-1.5 shrink-0 rounded-full"></span>' +
+      '<span class="min-w-0 flex-1 truncate text-paper">' + s.name + '</span>' +
+      '<span class="hidden shrink-0 text-muted sm:inline">' + (KIND_LABEL[s.kind] || s.kind) + '</span>' +
+      '<span class="w-10 shrink-0 text-right text-muted">' + s.dur + '</span>' +
+      '<span class="w-11 shrink-0 text-right ' + sc + ' uppercase">' + s.status + '</span>' +
+      '<span class="w-3 shrink-0 text-right text-wire caret">+</span>';
+
+    var det = el('div',
+      'hidden border-t border-wiredim/60 bg-panel/40 px-4 py-3 text-xs leading-relaxed text-paper/75');
+    det.textContent = s.detail;
+
+    btn.addEventListener('click', function () {
+      var open = det.classList.toggle('hidden') === false;
+      btn.setAttribute('aria-expanded', String(open));
+      btn.querySelector('.caret').textContent = open ? '–' : '+';
+    });
+
+    li.appendChild(btn);
+    li.appendChild(det);
+    return li;
+  }
+
+  function setPromptsDisabled(v) {
+    Array.prototype.forEach.call(promptsEl.children, function (b) { b.disabled = v; });
+  }
+
+  async function run(sc) {
+    if (running) return;
+    running = true;
+    setPromptsDisabled(true);
+    resetBtn.disabled = false;
+
+    // clear placeholder on first run
+    var ph = chatLog.querySelector('.text-wire');
+    if (ph && chatLog.children.length === 1) chatLog.innerHTML = '';
+
+    bubble('user', sc.user);
+    stepsEl.innerHTML = '';
+    statusEl.textContent = 'running…';
+    statusEl.className = 'text-accent';
+
+    var thinking = bubble('assistant', '<span class="font-mono text-xs text-wire">routing…</span>');
+    var sawWarn = false;
+
+    for (var i = 0; i < sc.steps.length; i++) {
+      await delay(i === 0 ? 350 : 620);
+      var s = sc.steps[i];
+      if (s.status === 'warn') sawWarn = true;
+      var row = stepRow(s);
+      stepsEl.appendChild(row);
+      // force reflow then fade in
+      void row.offsetWidth;
+      row.classList.remove('opacity-0');
+      thinking.innerHTML = '<span class="font-mono text-xs text-wire">' + s.name + '…</span>';
+    }
+
+    await delay(500);
+    thinking.className =
+      'max-w-[90%] rounded-lg rounded-bl-sm border border-wiredim bg-panel/50 px-3 py-2 text-paper/90';
+    thinking.innerHTML = sc.answer;
+    chatLog.scrollTop = chatLog.scrollHeight;
+
+    statusEl.textContent = sawWarn ? 'done · 1 warn' : 'done · clean';
+    statusEl.className = sawWarn ? 'text-warn' : 'text-wire';
+
+    running = false;
+    setPromptsDisabled(false);
+  }
+
+  function reset() {
+    if (running) return;
+    chatLog.innerHTML = '<p class="font-mono text-xs text-wire">// pick a request below to start a run</p>';
+    stepsEl.innerHTML = '<li class="px-4 py-6 font-mono text-xs text-wire">no run yet</li>';
+    statusEl.textContent = 'idle';
+    statusEl.className = 'text-wire';
+    resetBtn.disabled = true;
+  }
+
+  SCENARIOS.forEach(function (sc) {
+    var b = el('button', 'rounded border border-accent px-2.5 py-1.5 text-left text-xs text-accent ' +
+      'hover:bg-accent hover:text-bg transition-colors disabled:opacity-30 disabled:hover:bg-transparent disabled:hover:text-accent');
+    b.type = 'button';
+    b.textContent = sc.chip;
+    b.addEventListener('click', function () { run(sc); });
+    promptsEl.appendChild(b);
+  });
+
+  resetBtn.addEventListener('click', reset);
+})();
+</script>
+
+<!-- EDIT: Cloudflare Web Analytics snippet goes here once the token exists -->
+<!--
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js"
+        data-cf-beacon='{"token": "EDIT_CLOUDFLARE_ANALYTICS_TOKEN"}'></script>
+-->
+
+</body>
+</html>
