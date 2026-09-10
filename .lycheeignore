@@ -1,0 +1,8 @@
+# Patterns (regex) for links lychee should not check. See .github/workflows/check.yml
+
+# Self-referential canonical / og:url. Checking our own domain from CI is flaky
+# (Cloudflare bot rules, DNS propagation) and proves nothing useful.
+^https?://craigcooper\.dev
+
+# LinkedIn returns 999/403 to automated requests — not a broken link.
+linkedin\.com

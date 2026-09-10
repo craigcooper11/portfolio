@@ -25,8 +25,9 @@ managers and recruiters skimming on a laptop or phone.
   repo root (branch: main, folder: /root). No build or CD — pushes to `main` go
   live as-is. `craigcooper.dev` is the custom domain (see `CNAME`).
 - **CI:** `.github/workflows/check.yml` runs on push/PR — link + anchor check
-  (lychee) and a placeholder-link guard, both blocking; an advisory HTML
-  validation job. It does **not** deploy. Keep it green.
+  (lychee, config in `.lycheeignore`) and a placeholder-link guard. Both
+  blocking, neither deploys. Keep it green. (No HTML validator — the Tailwind
+  CDN `@apply` block trips it by design.)
 
 ## Design system
 
