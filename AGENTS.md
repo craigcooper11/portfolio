@@ -22,7 +22,11 @@ managers and recruiters skimming on a laptop or phone.
   toggle) don't need anything heavier.
 - **Fonts:** IBM Plex Serif / Sans / Mono, loaded from Google Fonts.
 - **Deployment target:** GitHub Pages, serving `index.html` directly from the
-  repo root (branch: main, folder: /root). No CI/CD needed for this.
+  repo root (branch: main, folder: /root). No build or CD — pushes to `main` go
+  live as-is. `craigcooper.dev` is the custom domain (see `CNAME`).
+- **CI:** `.github/workflows/check.yml` runs on push/PR — link + anchor check
+  (lychee) and a placeholder-link guard, both blocking; an advisory HTML
+  validation job. It does **not** deploy. Keep it green.
 
 ## Design system
 

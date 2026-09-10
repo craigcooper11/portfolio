@@ -1,0 +1,78 @@
+name: check
+
+# Quality gate for the site. Runs alongside GitHub Pages' branch deploy —
+# deploy stays instant; this just fails loudly if a link is dead or a
+# placeholder slipped through.
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: check-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  links:
+    name: broken links & anchors
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: lychee
+        uses: lycheeverse/lychee-action@v2
+        with:
+          # --include-fragments verifies that every #anchor points at a real id=.
+          # LinkedIn and gstatic block bots, so exclude them; 429 is a transient
+          # rate-limit, not a broken link; localhost only exists during local dev.
+          args: >-
+            --no-progress
+            --include-fragments
+            --exclude-mail
+            --exclude-loopback
+            --exclude 'linkedin\.com'
+            --exclude 'fonts\.gstatic\.com'
+            --accept '200..=299,429'
+            index.html README.md
+          fail: true
+
+  placeholders:
+    name: no leftover placeholders
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: grep for dead links / placeholder URLs & emails
+        run: |
+          status=0
+          if grep -nE 'href="#"' index.html; then
+            echo "::error file=index.html::Dead placeholder link (href=\"#\") — give it a real URL or drop the anchor."
+            status=1
+          fi
+          if grep -nE 'href="EDIT|https?://(www\.)?example\.(com|org)' index.html; then
+            echo "::error file=index.html::Placeholder URL still in the markup."
+            status=1
+          fi
+          if grep -nE '[A-Za-z0-9._%+-]*EDIT[A-Za-z0-9._%+-]*@|@example\.(com|org)' index.html; then
+            echo "::error file=index.html::Placeholder email address still in the markup."
+            status=1
+          fi
+          if [ "$status" -eq 0 ]; then echo "No placeholder links, URLs, or emails."; fi
+          exit $status
+
+  html:
+    name: html validity (advisory)
+    runs-on: ubuntu-latest
+    continue-on-error: true   # non-blocking: the Tailwind CDN setup uses a few
+                              # non-standard bits on purpose; treat this as signal
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+      - run: pip install html5validator
+      - name: html5validator (Nu)
+        run: html5validator index.html --ignore 'text/tailwindcss'
